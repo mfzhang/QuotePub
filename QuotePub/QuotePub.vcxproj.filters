@@ -82,4 +82,9 @@
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="dbf.txt">
+      <Filter>第三方\DBF</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
