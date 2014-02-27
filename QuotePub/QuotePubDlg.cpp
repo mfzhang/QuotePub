@@ -7,6 +7,9 @@
 #include "QuotePubDlg.h"
 #include "afxdialogex.h"
 
+#include "zeromq/ZeroMQWrapper.h"
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -156,4 +159,13 @@ HCURSOR CQuotePubDlg::OnQueryDragIcon()
 void CQuotePubDlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
+
+	ZeroMQWrapper * mq = new ZeroMQWrapper();
+	mq->init();
+	while(true)
+	{
+		char * msg = "hello the world";
+		mq->pub(msg, strlen(msg));
+	}
+	mq->cleanup();
 }

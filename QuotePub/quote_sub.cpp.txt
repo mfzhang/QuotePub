@@ -1,0 +1,141 @@
+#include <boost/interprocess/managed_shared_memory.hpp>
+#include <boost/interprocess/allocators/allocator.hpp>
+#include <boost/interprocess/containers/string.hpp>
+
+#include <boost/multi_index_container.hpp>
+#include <boost/multi_index/member.hpp>
+#include <boost/multi_index/ordered_index.hpp>
+#include <boost/multi_index_container.hpp>
+#include <boost/multi_index/member.hpp>
+#include <boost/multi_index/ordered_index.hpp>
+#include <iostream>
+#include <string>
+#include <boost/foreach.hpp>
+#include <boost/typeof/typeof.hpp>
+#include <boost/multi_index/composite_key.hpp>
+#include <boost/multi_index/global_fun.hpp>
+#include <boost/multi_index/mem_fun.hpp>
+#include <boost/multi_index/global_fun.hpp>
+#include <boost/multi_index/key_extractors.hpp>
+#include <boost/optional.hpp>
+#include <boost/tuple/tuple.hpp>
+#include <vector>
+#include <list>
+
+
+
+using namespace boost::interprocess;
+
+typedef managed_shared_memory::allocator<char>::type              char_allocator;
+typedef basic_string<char, std::char_traits<char>, char_allocator>shm_string;
+
+struct quote
+{
+public:
+	int market;
+	int kind;
+	shm_string seccode;
+	shm_string secname;
+	float price;
+	float zf;
+
+	quote(int market_, int kind_, const char* seccode_, const char_allocator& a, const char* secname_, const char_allocator& b, float price_, float zf_):
+		market(market_),kind(kind_), seccode(seccode_, a), secname(secname_, b), price(price_), zf(zf_)
+	{}
+};
+
+
+typedef boost::multi_index::composite_key<quote, 
+	BOOST_MULTI_INDEX_MEMBER(quote, int, market),
+	BOOST_MULTI_INDEX_MEMBER(quote, shm_string, seccode)
+>comp_key_search;
+
+typedef boost::multi_index::composite_key_compare<
+	std::greater<int>,
+	std::greater<shm_string>
+>comp_key_compare_search;
+
+
+typedef boost::multi_index::composite_key<quote, 
+	BOOST_MULTI_INDEX_MEMBER(quote, float, price),
+	BOOST_MULTI_INDEX_MEMBER(quote, int, market),
+	BOOST_MULTI_INDEX_MEMBER(quote, shm_string, seccode)
+>comp_key_sortbyprice;
+
+typedef boost::multi_index::composite_key_compare<
+	std::greater<float>,
+	std::greater<int>,
+	std::greater<shm_string>
+>comp_key_compare_sortbyprice;
+
+
+
+typedef boost::multi_index::multi_index_container<
+	quote,
+	boost::multi_index::indexed_by<
+		boost::multi_index::ordered_non_unique<comp_key_search, comp_key_compare_search>,
+		boost::multi_index::ordered_non_unique<comp_key_sortbyprice, comp_key_compare_sortbyprice>
+	>,
+	managed_shared_memory::allocator<quote>::type
+>quote_mic;
+
+
+int main()
+{
+/*
+	 struct shm_remove
+   {
+      shm_remove() { shared_memory_object::remove("MySharedMemory"); }
+      ~shm_remove(){ shared_memory_object::remove("MySharedMemory"); }
+   } remover;
+*/
+	 managed_shared_memory segment(open_only,"MySharedMemory");
+
+	quote_mic *quotes = segment.find_or_construct<quote_mic>
+      ("My MultiIndex Container")            //Container's name in shared memory
+      ( quote_mic::ctor_args_list(),
+      //, segment.get_allocator<quote>());  //Ctor parameters
+	  quote_mic::allocator_type(segment.get_segment_manager()));
+
+	
+
+	quote_mic::nth_index<0>::type& idx_search = quotes->get<0>();
+	quote_mic::nth_index<1>::type& idx_sortbyprice = quotes->get<1>();
+	
+
+	int count = 0;
+	char_allocator ca1(segment.get_allocator<char>());
+
+	// 查询股票实时行情
+	shm_string seccode("600000", ca1);
+	count = idx_search.count(boost::tuples::make_tuple(1, seccode));
+	quote_mic::nth_index<0>::type::iterator it = idx_search.find(boost::tuples::make_tuple(1, seccode));
+	for (int i=0; i<count; i++)
+	{
+		std::cout << it->seccode << std::endl;
+		it++;
+	}
+
+
+
+	std::cout << "分类报价排序：沪深A股最新价升序\n";
+	std::vector<quote> result;
+	BOOST_FOREACH(const quote& q, idx_sortbyprice)
+	{
+		int kind = q.kind;
+		if (kind == 1 || kind == 11)
+		{
+			std::cout << "市场" << q.market << ",类别" << q.kind << ", " << q.secname << ",最新价" << q.price << std::endl;
+
+			//result.push_back(q);
+		}
+		else
+		{
+			//有没有更好的办法？？？
+			std::cout << "过滤：市场" << q.market << ",类别" << q.kind << ", " << q.secname << ",最新价" << q.price << std::endl;
+		}
+	}
+
+
+	return 0;
+}

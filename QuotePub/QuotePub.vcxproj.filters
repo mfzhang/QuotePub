@@ -14,51 +14,57 @@
     <Filter Include="国内证券\历史行情">
       <UniqueIdentifier>{76fc39e8-2e52-4901-9311-68008254532d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NewFilter1">
-      <UniqueIdentifier>{05edb991-93d8-4836-9589-5d867992f9d5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="第三方">
       <UniqueIdentifier>{78a59246-32b2-4980-8a8a-ad402f95ffa6}</UniqueIdentifier>
     </Filter>
     <Filter Include="第三方\ZeroMQ">
       <UniqueIdentifier>{dfc247bf-ac93-47cc-9886-72455e639ff8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="第三方\DBF">
+      <UniqueIdentifier>{47693aeb-ecc2-420c-b34a-2e4d4e0cf9b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="界面">
+      <UniqueIdentifier>{05edb991-93d8-4836-9589-5d867992f9d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QuotePub.h">
-      <Filter>NewFilter1</Filter>
+      <Filter>界面</Filter>
     </ClInclude>
     <ClInclude Include="QuotePubDlg.h">
-      <Filter>NewFilter1</Filter>
+      <Filter>界面</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
-      <Filter>NewFilter1</Filter>
+      <Filter>界面</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>NewFilter1</Filter>
+      <Filter>界面</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>NewFilter1</Filter>
+      <Filter>界面</Filter>
     </ClInclude>
-    <ClInclude Include="zeromq\ZeroMQ.h">
+    <ClInclude Include="zeromq\ZeroMQWrapper.h">
       <Filter>第三方\ZeroMQ</Filter>
+    </ClInclude>
+    <ClInclude Include="Quote.h">
+      <Filter>国内证券\实时行情</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="QuotePub.cpp">
-      <Filter>NewFilter1</Filter>
+      <Filter>界面</Filter>
     </ClCompile>
     <ClCompile Include="QuotePubDlg.cpp">
-      <Filter>NewFilter1</Filter>
+      <Filter>界面</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="zeromq\ZeroMQ.cpp">
-      <Filter>第三方\ZeroMQ</Filter>
+      <Filter>界面</Filter>
     </ClCompile>
     <ClCompile Include="import_lib.cpp">
       <Filter>第三方</Filter>
+    </ClCompile>
+    <ClCompile Include="zeromq\ZeroMQWrapper.cpp">
+      <Filter>第三方\ZeroMQ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
