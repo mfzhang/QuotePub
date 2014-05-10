@@ -122,6 +122,9 @@
     <ResourceCompile Include="QuotePub.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="dbf\上海证券交易所 竞价撮合平台 市场参与者接口规格说明书1.24版.doc" />
+    <None Include="dbf\全国中小企业股份转让系统交易支持平台数据接口规范(V1.0.1).doc" />
+    <None Include="dbf\深圳证券交易所数据接口规范（Ver4.71）.pdf" />
     <None Include="res\QuotePub.rc2" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="dbf.txt" />
+    <Text Include="行情数据接口规范.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

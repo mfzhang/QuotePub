@@ -26,6 +26,15 @@
     <Filter Include="界面">
       <UniqueIdentifier>{05edb991-93d8-4836-9589-5d867992f9d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="国内证券\实时行情\上海证券交易所">
+      <UniqueIdentifier>{63072cce-01d5-4774-960c-9f600b420df0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="国内证券\实时行情\深圳证券交易所">
+      <UniqueIdentifier>{3c7a8786-3655-4f3f-b9fa-ead3e2d9b261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="国内证券\实时行情\OTC">
+      <UniqueIdentifier>{ca9fa57e-32f5-4522-a02c-880b8768262a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QuotePub.h">
@@ -76,6 +85,15 @@
     <None Include="res\QuotePub.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="dbf\深圳证券交易所数据接口规范（Ver4.71）.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所</Filter>
+    </None>
+    <None Include="dbf\全国中小企业股份转让系统交易支持平台数据接口规范(V1.0.1).doc">
+      <Filter>国内证券\实时行情\OTC</Filter>
+    </None>
+    <None Include="dbf\上海证券交易所 竞价撮合平台 市场参与者接口规格说明书1.24版.doc">
+      <Filter>国内证券\实时行情\上海证券交易所</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\QuotePub.ico">
@@ -85,6 +103,9 @@
   <ItemGroup>
     <Text Include="dbf.txt">
       <Filter>第三方\DBF</Filter>
+    </Text>
+    <Text Include="行情数据接口规范.txt">
+      <Filter>国内证券\实时行情</Filter>
     </Text>
   </ItemGroup>
 </Project>
