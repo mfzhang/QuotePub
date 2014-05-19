@@ -35,6 +35,12 @@
     <Filter Include="国内证券\实时行情\OTC">
       <UniqueIdentifier>{ca9fa57e-32f5-4522-a02c-880b8768262a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="国内证券\实时行情\深圳证券交易所\DBF">
+      <UniqueIdentifier>{ea5bed95-a74e-45fe-8dd7-b9edeac8ab76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="国内证券\实时行情\深圳证券交易所\FIX">
+      <UniqueIdentifier>{adb1b84f-3789-46ed-82c6-de6a9b4f8ed2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QuotePub.h">
@@ -85,14 +91,35 @@
     <None Include="res\QuotePub.rc2">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="dbf\深圳证券交易所数据接口规范（Ver4.71）.pdf">
-      <Filter>国内证券\实时行情\深圳证券交易所</Filter>
-    </None>
     <None Include="dbf\全国中小企业股份转让系统交易支持平台数据接口规范(V1.0.1).doc">
       <Filter>国内证券\实时行情\OTC</Filter>
     </None>
     <None Include="dbf\上海证券交易所 竞价撮合平台 市场参与者接口规格说明书1.24版.doc">
       <Filter>国内证券\实时行情\上海证券交易所</Filter>
+    </None>
+    <None Include="dbf\深圳证券交易所数据接口规范（Ver4.71）.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所\DBF</Filter>
+    </None>
+    <None Include="dbf\深圳证券交易所Binary行情数据接口规范1.00α.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所\FIX</Filter>
+    </None>
+    <None Include="dbf\深圳证券交易所STEP行情数据接口规范1.00α.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所\FIX</Filter>
+    </None>
+    <None Include="dbf\轻量级STEP会话层接口规范1.00α.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所\FIX</Filter>
+    </None>
+    <None Include="dbf\深圳证券交易所Binary交易数据接口规范1.00α.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所\FIX</Filter>
+    </None>
+    <None Include="dbf\深圳证券交易所STEP交易数据接口规范1.00α.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所\FIX</Filter>
+    </None>
+    <None Include="dbf\深圳证券交易所第五版交易系统接口规范开发指南1.00α.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所\FIX</Filter>
+    </None>
+    <None Include="dbf\深圳证券交易所数据文件交换接口规范1.00α.pdf">
+      <Filter>国内证券\实时行情\深圳证券交易所\FIX</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

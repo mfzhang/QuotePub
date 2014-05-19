@@ -4,7 +4,8 @@ http://www.sse.com.cn/marketservices/tradingservice/platform/tradingtech/technic
 
 深圳证券交易所
 http://www.szse.cn/main/rule/jysywzn/tech/index.shtml
-
+深交所新一代行情
+http://www.szse.cn/main/rule/jysywzn/stsv5/
 
 OTC行情
 http://www.neeq.com.cn/flfg/jsgf/
