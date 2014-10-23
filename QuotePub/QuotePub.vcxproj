@@ -26,7 +26,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
@@ -122,23 +122,34 @@
     <ResourceCompile Include="QuotePub.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dbf\上海证券交易所 竞价撮合平台 市场参与者接口规格说明书1.24版.doc" />
-    <None Include="dbf\全国中小企业股份转让系统交易支持平台数据接口规范(V1.0.1).doc" />
-    <None Include="dbf\深圳证券交易所Binary交易数据接口规范1.00α.pdf" />
-    <None Include="dbf\深圳证券交易所Binary行情数据接口规范1.00α.pdf" />
-    <None Include="dbf\深圳证券交易所STEP交易数据接口规范1.00α.pdf" />
-    <None Include="dbf\深圳证券交易所STEP行情数据接口规范1.00α.pdf" />
-    <None Include="dbf\深圳证券交易所数据接口规范（Ver4.71）.pdf" />
-    <None Include="dbf\深圳证券交易所数据文件交换接口规范1.00α.pdf" />
-    <None Include="dbf\深圳证券交易所第五版交易系统接口规范开发指南1.00α.pdf" />
-    <None Include="dbf\轻量级STEP会话层接口规范1.00α.pdf" />
     <None Include="res\QuotePub.rc2" />
+    <None Include="文档\证券\上交所\show2003.dbf" />
+    <None Include="文档\证券\上交所\上海证券交易所 综合业务平台 市场参与者接口规格说明书1.35版.doc" />
+    <None Include="文档\证券\上交所\上海证券交易所市场参与者EzSTEP通用数据库接口规格说明书1.00版.pdf" />
+    <None Include="文档\证券\上交所\上海证券交易所港股通市场参与者 接口规格说明书(港股交易)1.02版.doc" />
+    <None Include="文档\证券\上交所\上海证券交易所竞价撮合平台市场参与者接口规格说明书1.27版.doc" />
+    <None Include="文档\证券\上交所\关于竞价撮合平台FAST行情分阶段提速安排的通知.pdf" />
+    <None Include="文档\证券\上交所\港股通市场接口相关样例文件.rar" />
+    <None Include="文档\证券\上交所\轻量级STEP会话层接口规范_V1.00α1.pdf" />
+    <None Include="文档\证券\全国中小企业股份转让系统\全国中小企业股份转让系统交易支持平台数据接口规范(V1.0.1).doc" />
+    <None Include="文档\证券\深交所\sjshq.dbf" />
+    <None Include="文档\证券\深交所\深圳证券交易所Binary交易数据接口规范（Ver1.00 γ）.pdf" />
+    <None Include="文档\证券\深交所\深圳证券交易所Binary行情数据接口规范（Ver1.00 γ）.pdf" />
+    <None Include="文档\证券\深交所\深圳证券交易所STEP交易数据接口规范（Ver1.00 γ）.pdf" />
+    <None Include="文档\证券\深交所\深圳证券交易所STEP行情数据接口规范（Ver1.00 γ）.pdf" />
+    <None Include="文档\证券\深交所\深圳证券交易所数据接口规范（Ver4.71）.pdf" />
+    <None Include="文档\证券\深交所\深圳证券交易所数据文件交换接口规范（Ver1.00 γ）.pdf" />
+    <None Include="文档\证券\深交所\深圳证券交易所第五版交易系统接口规范开发指南（Ver1.00 γ）.pdf" />
+    <None Include="文档\证券\深交所\轻量级STEP会话层接口规范（LFIXT会话协议）Version 1.00 α 2.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\QuotePub.ico" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="dbf.txt" />
+    <Text Include="Fix8.txt" />
+    <Text Include="QuickFAST.txt" />
+    <Text Include="QuickFIX.txt" />
     <Text Include="行情数据接口规范.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
